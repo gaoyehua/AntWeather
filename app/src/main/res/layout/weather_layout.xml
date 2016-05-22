@@ -46,8 +46,8 @@
         <!--27A5F9-->
         <Button
             android:id="@+id/switch_city"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentTop="true"
             android:layout_marginTop="20dp"
             android:layout_marginLeft="10dp"
@@ -64,30 +64,47 @@
 
         <Button
             android:id="@+id/refresh_weather"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
             android:layout_alignParentRight="true"
             android:layout_alignParentTop="true"
             android:layout_marginTop="20dp"
             android:layout_marginRight="10dp"
             android:background="@drawable/title_update" />
-
+         <LinearLayout
+             android:layout_width="match_parent"
+             android:layout_height="40dp"
+             android:layout_below="@id/switch_city"
+             android:id="@+id/linearLayout">
+             <EditText
+                 android:id="@+id/input_message"
+                 android:layout_width="0dp"
+                 android:layout_height="wrap_content"
+                 android:layout_weight="1"
+                 android:hint="             G o o g l e 一下"/>
+             <Button
+                 android:id="@+id/search"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:text="search"/>
+         </LinearLayout>
         <TextView
             android:id="@+id/publish_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
             android:layout_marginRight="10dp"
-            android:layout_marginTop="60dp"
+
+            android:layout_marginTop="110dp"
             android:textColor="#FFF"
             android:textSize="18sp" />
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ant1"
-            android:layout_alignParentTop="true"
-            android:layout_toRightOf="@+id/city_name"
-            android:layout_toEndOf="@+id/city_name" />
+            android:layout_alignTop="@+id/linearLayout"
+            android:layout_toRightOf="@+id/weather_info_layout"
+            android:layout_toEndOf="@+id/weather_info_layout" />
 
         <LinearLayout
             android:id="@+id/weather_info_layout"

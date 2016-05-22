@@ -11,6 +11,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -54,7 +55,19 @@ public class WeatherActivity extends Activity implements OnClickListener{
 	 * 更新天气按钮
 	 */
 	private Button refreshWeather;
-	
+
+	/**
+	 * 搜素框
+	 * @param savedInstanceState
+     */
+	private EditText editText;
+
+	/**
+	 * 切换出浏览器
+	 * @param savedInstanceState
+     */
+	private Button button;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -70,6 +83,10 @@ public class WeatherActivity extends Activity implements OnClickListener{
 		currentDateText = (TextView) findViewById(R.id.current_date);
 		switchCity = (Button) findViewById(R.id.switch_city);
 		refreshWeather = (Button) findViewById(R.id.refresh_weather);
+
+		button =(Button) findViewById(R.id.search);
+		editText =(EditText) findViewById(R.id.input_message);
+
 		String countyCode = getIntent().getStringExtra("county_code");
 		if (!TextUtils.isEmpty(countyCode)) {
 			// 有县级代号时就去查询天气
@@ -81,6 +98,10 @@ public class WeatherActivity extends Activity implements OnClickListener{
 			// 没有县级代号时就直接显示本地天气
 			showWeather();
 		}
+
+
+		button.setOnClickListener(this);
+
 		switchCity.setOnClickListener(this);
 		refreshWeather.setOnClickListener(this);
 	}
@@ -102,6 +123,10 @@ public class WeatherActivity extends Activity implements OnClickListener{
 				queryWeatherInfo(weatherCode);
 			}
 			break;
+		case R.id.search:
+			Intent intent1 =new Intent(WeatherActivity.this,search.class);
+			startActivity(intent1);
+            editText.setText("");
 		default:
 			break;
 		}
